@@ -1,0 +1,108 @@
+<html>
+
+<head>
+    <meta name="viewport" content="with=device-width, initial scale=1.0">
+    <title>THE ORIENT</title>
+    <link rel="icon" type="image/x-icon" href="image/logo1.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+
+<body>
+    <nav class="navbar navbar" style="background-color: rgb(202, 42, 42);">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#p1">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+
+                <img style="height:50px; width: 50px;" src="image/logo1.jpg">
+
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="p1">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="active"><a href="index.html" style="color: black; letter-spacing: 2px;"><b>HOME</b></a>
+                    </li>
+                    <li><a href="bedroom.html" style="color: black; letter-spacing: 2px;"><b>BEDROOM</b></a></li>
+                    <li><a href="dining.html" style="color: black; letter-spacing: 2px;"><b>DINING</b></a></li>
+                    <li><a href="backyard.html" style="color: black; letter-spacing: 2px;"><b>BACKYARD</b></a></li>
+                    <li><a href="facilities.html" style="color: black; letter-spacing: 2px;"><b>FACILITIES</b></a></li>
+                    <li><a href="contact.html" style="color: black; letter-spacing: 2px;"><b>CONTACT US</b></a></li>
+
+                </ul>
+            </div>
+        </div>
+
+
+    </nav>
+
+
+    <div class="container-fluid" 
+        style="background-image: url(image/bedroom1.jpg); width: 100%; height: 100%; opacity: 0.9; margin-top: -20px;background-repeat: no-repeat; ">
+        <h1
+            style="text-align: center; padding-top: 250px; color: darkred; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, cursive; letter-spacing: 2px;">
+            <b>Several Bedroom Designs</b>
+        </h1>
+        <p
+            style="text-align: center;letter-spacing: 2px ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, cursive; color: wheat; ">
+            Your bedroom is more than just a place to sleep. With increasingly common fast-paced lives, it is important
+            to have a space to unwind. Bedrooms should have a vibe that reflects your personality and instantly lets you
+            relax and recharge as you escape everyday life. You can set the tone of your bedroom by making tiny decor
+            tweaks or by planning a complete overhaul of the bedroom design.<br>Start thinking about the bedroom of your
+            dreams right here by browsing these bedroom ideas.
+        </p>
+    </div>
+
+    <div class="container-fluid" ng-app="myapp" ng-controller="mycontroller">
+        <div class="col-sm-4" ng-repeat ="data in mydata1">
+            <h3 style="text-align: center; font-weight: bolder;font-family: 'Times New Roman', Times, serif,cursive;">
+                {{data.title}}</h3>
+            <img id="bedroom_image" src="image/{{data.image}}" alt="bedroom" class="img-fluid"
+                style="width: 100%; height:250px;  border:4px solid brown;border-radius:10px;">
+            <p
+                style="margin-top:10px; font-family: Georgia, 'Times New Roman', Times, serif;letter-spacing: 1px; text-align: center;">
+                {{data.description}}</p>
+        </div>
+    </div>
+    
+    <div class="container-fluid" style="background:brown; width: 100%;height:50px;padding: 1%;margin-top: 30px  ">
+        <div class="row text-center">
+
+            <div class="col-sm-12 text-center">
+                <p style="text-align: center;letter-spacing: 2px ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, cursive; color: black;">Copyright&copy;2023.All Rights
+              Reserved By <span style="color: orange;">THE ORIENT</span></p>
+              
+    
+          </div>
+        </div>
+    
+      </div>
+      
+      <script>
+  
+        var app=angular.module("myapp",[]);
+        app.controller("mycontroller",function($scope,$http){
+      
+          $http.get("http://localhost:5000/bedroom").then(function(response){
+      
+            $scope.mydata1=response.data;
+      
+          });
+      
+      
+        });
+      </script>
+
+</body>
+
+</html>
