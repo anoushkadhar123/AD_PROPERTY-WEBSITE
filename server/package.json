@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "url": "^0.11.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "5000",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
